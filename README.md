@@ -1,50 +1,77 @@
-# React + TypeScript + Vite
+# 🌌 DSA Learn — Interactive Data Structures & Algorithms Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DSA Learn is a high-fidelity, interactive, and educational single-page web application designed to visually illustrate complex Data Structures and Algorithms (DSA) concepts. 
 
-Currently, two official plugins are available:
+Built with **React**, **TypeScript**, and **Vite**, the platform provides a premium "Deep Space" dark-themed pedagogical environment with step-by-step visualizations synced with real-time code executions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Modules Included
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 1. ▤ Queue Visualizer (FIFO)
+* **First-In, First-Out (FIFO) Simulation:** Custom animations displaying queue actions step-by-step.
+* **Dynamic Pointer Tracking:** Front and Rear pointers update and point dynamically.
+* **Canvas Control Bar:** Clickable timeline, speed controls ($0.5\times$ to $2\times$), auto-play, and pause functionality.
+* **Code Integration:** Implementation panel in JavaScript highlights active lines matching current steps.
+* **Status Metrics:** Live indicators for front/rear index, queue size, isEmpty, and the current operation.
 
-- Configure the top-level `parserOptions` property like this:
+### 2. ⬡ Singly Linked List Visualizer
+* **Dynamic Node Pointer Cells:** Unique 2-cell node visual splitting Node value and `next` pointer value.
+* **SVG Vector Connections:** Custom curved SVG connectors with arrow heads pointing from source pointer to destination node.
+* **Head & Tail Tracking:** Visual representations of `HEAD`, `TAIL`, and `null` terminal references.
+* **Interactive Operations:** Step-through guides for `insertHead`, `insertTail`, `insertAt`, `deleteHead`, `deleteTail`, and a sequential `search` scanning animation.
+* **Complexity Metrics:** Quick reference tables detailing time and space complexity for all primary operations.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## 🎨 Theme & Styling System
+* **Premium Design:** Glassmorphic layout card styling with sleek neon glowing borders.
+* **Aesthetic Palette:** Deep space black/dark slate background combined with custom neon cyan, purple, and yellow accents.
+* **Keyframe Animations:** Custom CSS transitions for spring node entrances, pop-out node exits, and pulsing scan indicators.
+* **Modern Typography:** Optimized system font pairings (Space Grotesk + JetBrains Mono) for readability.
+
+---
+
+## 💻 Tech Stack
+* **Core:** React 18, TypeScript, Vite, HTML5, Vanilla CSS3 (custom CSS Variables)
+* **Routing:** React Router DOM (v7) for seamless single-page-app deep link navigations
+* **Build tool:** Vite + SWC
+
+---
+
+## 🚀 Quickstart
+
+### 1. Installation
+Clone the repository and install dependencies:
+```bash
+git clone https://github.com/ankit18193/Queue.git
+cd Queue
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### 2. Running Dev Server
+Start the local development server (with Hot Module Replacement):
+```bash
+npm run dev
 ```
+Open `http://localhost:5173` in your browser.
+
+### 3. Build & Preview Production
+Compile code and preview the production build locally:
+```bash
+npm run build
+npm run preview
+```
+This runs the optimized build on `http://localhost:4173/`.
+
+---
+
+## 🌐 Deploy to Vercel or Netlify
+
+The project includes pre-configured routing rules for Single Page Application (SPA) fallbacks so that direct routes (e.g. `/linked-list` or `/queue`) load correctly:
+* **Vercel:** Configuration included in `vercel.json`
+* **Netlify:** Configuration included in `public/_redirects`
+
+### Easy Vercel Deployment
+1. Connect your GitHub repository to [Vercel](https://vercel.com).
+2. Click **Deploy**. Vercel will automatically detect Vite build configurations and build it instantly.
