@@ -1,0 +1,209 @@
+.visualizer-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Top Bar */
+.viz-topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
+  border-bottom: 1px solid var(--border-secondary);
+  background: rgba(15, 17, 32, 0.95);
+  backdrop-filter: blur(8px);
+  flex-shrink: 0;
+  height: 52px;
+}
+
+.viz-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex: 1;
+}
+
+.viz-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+}
+
+.viz-title-icon {
+  color: var(--accent-primary);
+}
+
+.step-counter {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--bg-glass-light);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-full);
+  padding: 3px 10px;
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-secondary);
+}
+
+.step-sep {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.step-total {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* View Mode Toggle */
+.view-mode-toggle {
+  display: flex;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  gap: 2px;
+}
+
+.view-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: var(--font-ui);
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.view-mode-btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-glass-light);
+}
+
+.view-mode-btn.active {
+  color: var(--text-primary);
+  background: var(--accent-primary);
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.4);
+}
+
+/* Operation Indicator */
+.op-indicator {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  border-radius: var(--radius-full);
+  padding: 5px 14px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.op-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.op-enqueue {
+  color: var(--accent-green);
+  background: rgba(52, 211, 153, 0.08);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+.op-enqueue .op-dot {
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: statusPulse 1.5s infinite;
+}
+
+.op-dequeue {
+  color: var(--accent-red);
+  background: rgba(248, 113, 113, 0.08);
+  border-color: rgba(248, 113, 113, 0.25);
+}
+.op-dequeue .op-dot {
+  background: var(--accent-red);
+  box-shadow: 0 0 8px var(--accent-red);
+  animation: statusPulse 1.5s infinite;
+}
+
+.op-peek {
+  color: var(--accent-yellow);
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.25);
+}
+.op-peek .op-dot {
+  background: var(--accent-yellow);
+  box-shadow: 0 0 8px var(--accent-yellow);
+  animation: statusPulse 1.5s infinite;
+}
+
+.op-idle {
+  color: var(--text-muted);
+  background: var(--bg-glass-light);
+  border-color: var(--border-secondary);
+}
+.op-idle .op-dot {
+  background: var(--text-muted);
+}
+
+/* Content Area */
+.viz-content {
+  flex: 1;
+  display: grid;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.view-visual {
+  grid-template-columns: 1fr;
+}
+
+.view-split {
+  grid-template-columns: 1fr 380px;
+}
+
+.view-code {
+  grid-template-columns: 1fr;
+}
+
+.canvas-area {
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid var(--border-secondary);
+}
+
+.view-visual .canvas-area,
+.view-code .canvas-area {
+  border-right: none;
+}
+
+.code-area {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
